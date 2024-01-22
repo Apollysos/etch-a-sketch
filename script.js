@@ -12,12 +12,19 @@ for (let i = 0; i < 256; i++) {
   div.classList.add("div");
   container.appendChild(div);
   div.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = "yellowgreen";
+    e.target.style.backgroundColor = randomNumberGenerator();
   });
 }
 
+function randomNumberGenerator() {
+  let color_x = Math.floor(Math.random() * 256);
+  let color_y = Math.floor(Math.random() * 256);
+  let color_z = Math.floor(Math.random() * 256);
+  return `rgba(${color_x}, ${color_y}, ${color_z})`;
+}
+
 btn.addEventListener("click", () => {
-  input = prompt("Please enter the number of squares per side for new grid");
+  input = prompt("Please enter the number of squares per side for a new grid");
 
   deleteDivs();
   createDivs();
@@ -39,7 +46,7 @@ function createDivs() {
     div2.classList.add("div");
     container.appendChild(div2);
     div2.addEventListener("mouseover", (e) => {
-      e.target.style.backgroundColor = "red";
+      e.target.style.backgroundColor = randomNumberGenerator();
     });
   }
 }
